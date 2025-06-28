@@ -1,213 +1,174 @@
-# 🧠 AI Form Builder SaaS
+# 🧠 Web3 SaaS Dashboard
 
-A modern, full-stack form builder that combines the flexibility of drag-and-drop form creation with the power of AI. Instantly generate, publish, and manage intelligent forms — all without writing a single line of code.
+A modern, responsive, and powerful dashboard for managing crypto assets, NFTs, and blockchain activity across multiple chains and wallets. Built with **Next.js 14**, **TypeScript**, **Wagmi**, and the latest Web3 tech.
 
-![AI Form Builder](https://via.placeholder.com/800x400?text=AI+Form+Builder+SaaS)
-
----
-
-## 🚀 Key Features
-
-- ⚙️ **Drag & Drop Builder** – Effortlessly design complex forms with a clean interface
-- 🤖 **AI Field Generation** – Use OpenAI to auto-create labels, descriptions, and validations
-- 🧪 **Real-time Preview** – Instantly visualize form changes before publishing
-- 📬 **Public Form Links** – Share and collect responses through unique URLs
-- 📊 **Dashboard & Analytics** – Track submissions and export results
-- 🔒 **Form Access Control** – Publish/unpublish forms anytime
-- 💡 **Field Types** – Text, Email, Number, Textarea, Select, Radio, Checkbox
+![Web3 Dashboard](https://via.placeholder.com/1200x600?text=Web3+SaaS+Dashboard)
 
 ---
 
-## 🧰 Tech Stack
+## 🚀 Features
 
-- **Frontend**: Next.js 14 (App Router), React, Tailwind CSS, TypeScript
-- **Backend/API**: Next.js API Routes (Server Actions)
-- **Database**: SQLite (dev), PostgreSQL-ready via Prisma
-- **State & Validation**: React Hook Form, Zod, Zustand
-- **Drag & Drop**: Powered by `@dnd-kit`
-- **AI Integration**: OpenAI GPT-3.5 Turbo
-- **Auth**: NextAuth.js
-- **Icons & UI**: Lucide Icons, Radix UI
+- 🔌 **Multi-Wallet Support** – Connect MetaMask, WalletConnect, and other wallets seamlessly  
+- 💰 **Portfolio Tracker** – Real-time ETH/token balances across Ethereum, Polygon, and Arbitrum  
+- 🖼️ **NFT Gallery** – Visualize and manage your NFTs with high-quality thumbnails  
+- 📊 **Transaction Explorer** – View recent activity with full transaction metadata  
+- 🔔 **Live Notifications** – Activity feed with on-chain events and updates  
+- 🎨 **Modern UI/UX** – Responsive dark mode with smooth animations and accessibility  
+- ⚡ **Performance Focused** – Fast load times with optimized bundling via Next.js App Router  
 
 ---
 
-## 📦 Installation
+## 🛠 Tech Stack
 
-### Prerequisites
+- **Frontend**: Next.js 14, React 18, TypeScript  
+- **Styling**: Tailwind CSS, Framer Motion  
+- **Web3 SDKs**: Wagmi, Viem, Web3Modal v3  
+- **Blockchain Data**: Alchemy SDK  
+- **UI Toolkit**: Headless UI, Heroicons, React Hot Toast  
 
-- Node.js 18+
-- OpenAI API Key
-- npm, yarn, or pnpm
+---
 
-### Setup Instructions
+## 📦 Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/your-username/ai-form-builder-saas
-cd ai-form-builder-saas
-
-# 2. Install dependencies
-npm install
-
-# 3. Create the .env file
-cp .env.example .env
+git clone https://github.com/your-username/web3-saas-dashboard.git
+cd web3-saas-dashboard
 ```
 
-### Example `.env`
+### 2. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Configure Environment
+
+Copy the example file:
+
+```bash
+cp .env.example .env.local
+```
+
+Edit `.env.local` and add your credentials:
 
 ```env
-DATABASE_URL="file:./dev.db"
-OPENAI_API_KEY="your-openai-api-key"
-NEXTAUTH_SECRET="your-secret"
-NEXTAUTH_URL="http://localhost:3000"
-NEXT_PUBLIC_APP_URL="http://localhost:3000"
+# Required
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
+NEXT_PUBLIC_ALCHEMY_API_KEY=your_alchemy_key
+
+# Optional
+NEXT_PUBLIC_ETHEREUM_RPC_URL=https://eth-mainnet.alchemyapi.io/v2/your_key
+NEXT_PUBLIC_POLYGON_RPC_URL=https://polygon-mainnet.g.alchemy.com/v2/your_key
+NEXT_PUBLIC_ARBITRUM_RPC_URL=https://arb-mainnet.g.alchemy.com/v2/your_key
 ```
 
-```bash
-# 4. Set up the database
-npx prisma generate
-npx prisma db push
+### 4. Run the Development Server
 
-# 5. Run the app
+```bash
 npm run dev
 ```
 
-Visit: [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ---
 
-## 🎯 How It Works
+## 🧭 Usage Guide
 
-### Creating a Form
-
-1. Click "Create Form" on the dashboard
-2. Drag fields from the sidebar into the form builder
-3. Click a field to edit its properties (label, validation, etc.)
-4. Use **AI tools** to suggest or generate content
-5. Preview, publish, and share your form
-
-### Sharing & Collecting Responses
-
-- Forms get a **public link** after publishing
-- Users can submit anonymously or with email
-- View submissions via the dashboard
+1. Click **"Connect Wallet"** and choose MetaMask or WalletConnect  
+2. Explore your **Portfolio Dashboard** for token/NFT balance and activity  
+3. Use the **NFT Gallery** to browse assets visually  
+4. View **Transaction History** and activity across supported chains  
+5. Receive **Real-Time Notifications** for wallet changes  
 
 ---
 
-## 📁 Folder Structure
+## 🏗️ Folder Structure
 
 ```
-.
-├── app/
-│   ├── page.tsx                 # Landing / dashboard
-│   ├── form/[id]/               # Public form route
-│   └── api/                     # API endpoints (RESTful)
-├── components/                  # UI components
-├── lib/                         # Utils, Prisma, validators
-├── prisma/schema.prisma         # Data models
-├── public/                      # Icons and assets
-└── styles/                      # Tailwind styles
+web3-saas-dashboard/
+├── app/                 # Next.js App Router files
+│   ├── page.tsx        # Landing dashboard
+│   ├── layout.tsx      # Root layout with providers
+│   └── globals.css     # Tailwind global styles
+├── components/         
+│   ├── ui/             # Reusable UI widgets
+│   ├── dashboard/      # Dashboard widgets
+│   └── providers/      # Wagmi/Web3Modal config
+├── public/             # Static images/icons
+├── utils/              # Web3 and formatting helpers
+└── package.json        # Scripts and dependencies
 ```
 
 ---
 
-## 🧠 AI Capabilities
+## 🌐 Supported Networks
 
-- **Bulk Field Suggestions** – Based on title/description
-- **Smart Labeling** – Automatically generate field labels
-- **Auto Validations** – Email, required fields, min/max
-- **Dynamic Placeholder & Help Texts** – Enhanced UX
+- ✅ Ethereum Mainnet  
+- ✅ Polygon  
+- ✅ Arbitrum  
+
+_(Easily extendable to other EVM-compatible chains)_
 
 ---
 
 ## 🧪 Testing
 
 ```bash
-# Run local dev
-npm run dev
+# Lint & format
+npm run lint
 
-# Steps to test manually:
-# 1. Create a form
-# 2. Add fields via drag and drop
-# 3. Use AI to generate field content
-# 4. Publish and visit the public form
-# 5. Submit responses and verify in dashboard
+# Build and test
+npm run build
+npm run test
 ```
 
 ---
 
-## 🔐 Authentication
+## 🔮 Roadmap
 
-- Powered by `NextAuth.js`
-- Support for GitHub, Google, and credentials
-- Users manage their own forms and data securely
-
----
-
-## 📝 API Endpoints
-
-- `GET /api/forms` – List all forms
-- `POST /api/forms` – Create new form
-- `GET /api/forms/[id]` – Fetch form by ID
-- `PUT /api/forms/[id]` – Update form
-- `DELETE /api/forms/[id]` – Delete form
-- `POST /api/responses` – Submit form response
-- `POST /api/ai/generate-fields` – Generate AI-powered fields
-
----
-
-## 🌐 Deployment
-
-### Vercel (Recommended)
-
-1. Push repo to GitHub
-2. Import into [vercel.com](https://vercel.com)
-3. Add your environment variables in dashboard
-4. Click "Deploy"
-
-### Docker (Optional)
-
-```bash
-docker build -t ai-form-builder .
-docker run -p 3000:3000 ai-form-builder
-```
-
----
-
-## 📈 Roadmap
-
-- [ ] Conditional logic between fields
-- [ ] File uploads (PDFs, images)
-- [ ] Email/webhook notifications
-- [ ] PDF export of submissions
-- [ ] Custom styling/themes
-- [ ] Team collaboration
-- [ ] i18n (multi-language support)
+- [ ] 🌉 Cross-chain NFT display  
+- [ ] 📈 Portfolio analytics and charts  
+- [ ] 🔁 Token swap interface (via 1inch / Uniswap SDK)  
+- [ ] 🛠️ Wallet action center (approve/revoke)  
+- [ ] 📤 Export CSV / PDF portfolio report  
+- [ ] 📡 On-chain alert system (e.g., large transfer warning)  
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork the repo
-2. Create a feature branch
-3. Make your changes
-4. Add tests where applicable
-5. Submit a Pull Request 🚀
+Contributions are welcome!
+
+```bash
+# Fork the repository
+# Create a new branch
+git checkout -b feature/your-feature-name
+
+# Commit and push
+git commit -m "Add feature"
+git push origin feature/your-feature-name
+
+# Open a Pull Request on GitHub 🚀
+```
 
 ---
 
 ## 📄 License
 
-Licensed under the [MIT License](LICENSE).
+Distributed under the [MIT License](LICENSE).
 
 ---
 
-## 💬 Support
+## 🙋 Support & Feedback
 
-- [Submit an issue](../../issues)
-- For questions, reach out via GitHub Discussions
-- Give the project a ⭐ if you find it useful!
+- 👉 [Create an issue](https://github.com/your-username/web3-saas-dashboard/issues)
+- 💬 Reach out via GitHub Discussions
+- ⭐ Star the repo if you find it useful
 
 ---
 
-**Built with ❤️ using Next.js, Tailwind CSS, and OpenAI**
+**Built with ❤️ for the Web3 community — powered by Next.js, Viem, and Alchemy**
